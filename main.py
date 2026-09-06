@@ -1,5 +1,4 @@
-
-
+import Interface
 from PocketMonster import Pokemon, LimitedEditionPokemon
 
 
@@ -14,20 +13,12 @@ def basic_startup():
 
 
 def main():
-    print("Welcome to your Pokédex for Pokémon Go!")
-    starters = basic_startup()
-    for starter in starters:
-        print(f"{starter.name} (#{starter.pokedex_number}) - Type: {starter.type1}" + (f"/{starter.type2}" if starter.type2 else ""))
-        if starter.shiny:
-            print("This Pokémon is shiny!")
-        if isinstance(starter, LimitedEditionPokemon):
-            if starter.event:
-                print(f"Event: {starter.event}")
-            if starter.background:
-                print(f"Background: {starter.background}")
-            if starter.costume:
-                print(f"Costume: {starter.costume}")
+    interface = Interface.Interface()
+    pokemon_list = basic_startup()
 
+    for pokemon in pokemon_list:
+        interface.add_pokemon(pokemon)
+    interface.display_pokemon()
 
 if __name__ == "__main__":
     main()

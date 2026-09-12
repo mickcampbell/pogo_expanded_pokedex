@@ -1,6 +1,4 @@
 
-users_pokedex = None
-
 class Pokemon:
     def __init__(self, name, pokedex_number, type1, type2=None, shiny=False):
         self.name = name
